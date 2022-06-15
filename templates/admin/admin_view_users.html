@@ -1,0 +1,63 @@
+{% extends 'includes/admin_base.html' %}
+{% block content %}
+{%load static%}
+
+<head>
+  <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+  <style media="screen">
+    a:link {
+      text-decoration: none;
+    }
+
+    h6 {
+      text-align: center;
+    }
+
+    .row {
+      margin: 100px;
+    }
+  </style>
+</head>
+<br><br>
+{% include 'includes/alerts.html' %}
+<div class="container">
+  <div class="panel panel-primary">
+    
+    <div class="panel-heading">
+      <h6 class="panel-title">Users</h6>
+    </div>
+    <table class="table table-hover" id="dev-table">
+      <thead>
+        <tr>
+
+          <th>Name</th>
+          <th>Email</th>
+          <th>Username</th>
+         
+          <th>Date joined</th>
+          <th>Last login</th>
+          <th>Update user</th>
+          <th>Delete user</th>
+        </tr>
+      </thead>
+      {% for s in users %}
+      <tr>
+
+        <td> {{s.user.full_name}}</td>
+        <td> {{s.user.email}}</td>
+        <td>{{s.user.username}}</td>
+        <td>{{s.user.date_joined}}</td>
+        <td>{{s.user.last_login}}</td>
+        <td><a class="btn btn-primary btn-xs" href="{% url 'admin_update_user' s.id %}"><span class="glyphicon glyphicon-edit"></span></a></td>
+        <td><a class="btn btn-primary btn-xs" href="{% url 'admin_delete_user' s.id %}"><span class="glyphicon glyphicon-trash"></span></a></td>
+      </tr>
+      {% endfor %}
+    </table>
+  </div>
+</div>
+
+<br><br><br><br><br><br>
+{% endblock content %}

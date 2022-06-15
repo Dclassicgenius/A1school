@@ -1,0 +1,70 @@
+{% load static %}
+
+<!-- ======= Header ======= -->
+<header id="header" class=" d-flex align-items-center header-transparent navbar navbar-dark bg-dark ">
+    <div class="container d-flex justify-content-between align-items-center">
+
+        <div class="logo">
+            <h1 class="text-light"><a href="{% url 'home' %}"><span>A1school</span></a></h1>
+        
+        </div>
+        <nav id="navbar" class="navbar" >
+            <ul>
+                <li><a class="active" href="{% url 'home' %}">Home</a></li>
+                <li><a href="#why_us">About</a></li>
+                
+                <li><a href="#footer">Contact Us</a></li>
+                {% if user.id is None %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'login' %}">Sign in</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'register' %}">Register</a>
+                </li>
+
+                {% elif request.user.is_superuser %}
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Quizzes
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style="background-color: #070707;">
+                      <a class="dropdown-item" href="{% url 'html' %}">HTML quiz</a>
+                      <a class="dropdown-item" href="{% url 'css' %}">CSS quiz</a>
+                      <a class="dropdown-item" href="{% url 'js' %}">JS quiz</a>
+                    </div>
+                  </li>
+                <li><a href="{% url 'editor' %}">Play ground</a></li>
+                <a href="{% url 'admin_dashboard' %}">Admin-dashboard</a>
+                <a href="{% url 'logout' %}"> Logout</a>
+                
+                {% else %}
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Quizzes
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style="background-color: #070707;">
+                      <a class="dropdown-item" href="{% url 'html' %}">HTML quiz</a>
+                      <a class="dropdown-item" href="{% url 'css' %}">CSS quiz</a>
+                      <a class="dropdown-item" href="{% url 'js' %}">JS quiz</a>
+                    </div>
+                  </li>
+
+                <li><a href="{% url 'editor' %}">Play ground</a></li>
+                <a href="{% url 'user_dashboard_view' %}">Dashboard</a>
+                <a href="{% url 'logout' %}"> Logout</a>
+                {% endif %}
+
+
+                <i class="bi bi-list mobile-nav-toggle"></i>
+        </nav>
+        
+        <!-- .navbar -->
+        {% if user.id is None %}
+        <small class="title text-muted">Welcome guest!</small>
+        {% else %}
+        <small class="title text-muted">Welcome {{user.first_name}}!</small>
+        {% endif %}
+
+    </div>
+</header>
+<!-- End Header -->
