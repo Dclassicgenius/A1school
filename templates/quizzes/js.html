@@ -1,0 +1,43 @@
+{% extends 'base.html' %} {% load static %} {% block content %}
+
+
+<section class="services">
+  
+  <div class="container">
+    
+    <div class="row">
+      {% for l in level  %}
+      <div
+        class="col align-items-stretch"
+        data-aos="fade-up"
+      >
+      
+      
+        <div class="icon-box icon-box-green">
+          
+          <div class="icon"><i class="bx bxl-javascript"></i></div>
+          
+          <h4 class="title">{{l.sub_category_name}}</h4>
+          <p class="description">
+            {{l.sub_description}}
+          </p>
+          
+          <br />
+        
+          <form action="{% url 'take-test' course_js.id l.id%}" method="POST">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-success">Take Quiz</button>
+          </form>
+          
+        </div>
+        
+      </div>
+      {% endfor %}
+    </div>
+    
+  </div>
+  
+</section>
+
+
+{% endblock content %}

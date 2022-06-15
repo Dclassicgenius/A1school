@@ -1,0 +1,79 @@
+{% extends 'includes/admin_base.html' %}
+{% load widget_tweaks %}
+{% load static %}
+<script type="text/javascript" src="{% static "ckeditor/ckeditor-init.js" %}"></script>
+<script type="text/javascript" src="{% static "ckeditor/ckeditor/ckeditor.js" %}"></script>
+{% block content %}
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link
+    rel="stylesheet"
+    href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+  />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+ <style>
+     a:link {
+      text-decoration: none;
+    }
+ </style>
+  
+
+</head>
+<h2 style="text-align: center; color: blue">ADD QUESTION</h2>
+<form method="POST" autocomplete="off" style="margin: 100px; margin-top: 0px">
+  {%csrf_token%}
+  {{ questionForm.media }}
+  
+    <div class="form-row ">
+      <div class="form-group col-md-6">
+        <label for="question">Course</label>
+        {% render_field questionForm.courseID|attr:'required:true' class="form-select form-select-lg" %}
+          
+      </div>
+      <div class="form-group col-md-6">
+        <label for="question">Level</label>
+           {% render_field questionForm.levelID|attr:'required:true' class="form-select form-select-lg" %}
+      </div>
+    </div>
+<br><br>
+    <div>
+      <label for="question">Question</label>
+    {% render_field questionForm.question|attr:'required:true' class="form-control" placeholder="Question" %}
+    </div>
+    
+    <br />
+    
+    <div>
+      <label for="question_number">Marks</label>
+    {% render_field questionForm.marks|attr:'required:true' class="form-control" placeholder="10" %}
+    </div>
+    
+    <br />
+    <label for="answer1">Answer 1</label>
+    {% render_field questionForm.answer1|attr:'required:true' class="form-control" placeholder="Answer1" %}
+    <br />
+    <label for="answer2">Answer 2</label>
+    {% render_field questionForm.answer2|attr:'required:true' class="form-control" placeholder="Answer2" %}
+    <br />
+    <label for="answer3">Answer 3</label>
+    {% render_field questionForm.answer3|attr:'required:true' class="form-control" placeholder="Answer3" %}
+    <br />
+    <label for="answer4">Answer 4</label>
+    {% render_field questionForm.answer4|attr:'required:true' class="form-control" placeholder="Answer4" %}
+    <br />
+    <label for="answer">Answer</label>
+    {% render_field questionForm.answer|attr:'required:true' class="form-select form-select-lg" %}
+
+    <br><br>
+
+  <button type="submit" class="btn btn-primary">ADD</button>
+
+  
+</form>
+
+{% endblock content %}
