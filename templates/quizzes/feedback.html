@@ -87,7 +87,7 @@
     {% endfor %}
     <br><br><br>
 
-    <h5 class="text-primary"><b>You scored {{percentage}}% </b></h5>
+    <h5 class="text-primary"><b>You scored {{percentage|floatformat:"0"}}% </b></h5>
     <h5 class="text-primary">Score: {{score}}  </h5>
     <h5 class="text-primary">Total marks: {{total_marks}}  </h5>
 
