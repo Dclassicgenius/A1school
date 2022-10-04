@@ -54,4 +54,11 @@ This is a simple quiz appplication with a built in dvelopment environment for wr
 
 ![Development environment](https://github.com/Dclassicgenius/A1school/blob/master/screenshots/react-app%20gif.gif)
 ![Home page](https://github.com/Dclassicgenius/A1school/blob/master/screenshots/Screenshot%202022-10-04%20at%2013.32.25.png)
+![Quiz page](https://github.com/Dclassicgenius/A1school/blob/master/screenshots/Screenshot%202022-10-04%20at%2013.33.43.png)
+![level page](https://github.com/Dclassicgenius/A1school/blob/master/screenshots/Screenshot%202022-10-04%20at%2014.57.30.png)
+![Quiz page](https://github.com/Dclassicgenius/A1school/blob/master/screenshots/Screenshot%202022-10-04%20at%2015.15.17.png)
+![Answer page](https://github.com/Dclassicgenius/A1school/blob/master/screenshots/Screenshot%202022-10-04%20at%2015.16.01.png)
+![User dashboard page](https://github.com/Dclassicgenius/A1school/blob/master/screenshots/Screenshot%202022-10-04%20at%2016.33.24.png)
+![Admin page](https://github.com/Dclassicgenius/A1school/blob/master/screenshots/Screenshot%202022-10-04%20at%2015.20.09.png)
+
 
